@@ -37,39 +37,35 @@
         <!--end of Navigation bar-->
       </div>
     </header>
+    <main>
+      <div class="row" id="product-area">
+          <?php
+            $pdo = new PDO("mysql:host=localhost;dbname=test_boutique", 'admin', 'perrine');
+            $id = $_GET["id"];
+            $product = $pdo->query('SELECT * FROM product WHERE id='.$id)->fetch();
+           ?>
 
-    <div class="row" id="main">
-      <div class="column col-12 col-sm-5 col-md-3" id="filterMenu">
-        <div class="col filter">
-          <i class="fas fa-caret-right"></i>
+        <div class="single-product-container column col-sm-6">
+
+          <h1><?php echo $product['name'];?></h1>
+
+          <div class="presentation">
+            <p><?php echo $product['description'];?></p>
+            <span class="discount">Prix</span>
+            <span class="title"><?php echo $product['prix'];?></span>
+          </div>
+
+          <div class="presentation content"></div>
+          <button type="button" name="button">+</button>
+          <input class="cpt" type="text" name="" value="">
+          <button type="button" name="button">-</button>
+          <span class="quantity"></span>
+
+          <button class="ajoutPanier" type="button" name="button">Ajouter au panier</button>
+
         </div>
       </div>
-      <div class="column col-12" id="menuArticle">
-        <div class="row ">
-          <div class="column col-12" id="card-art">
-            <div class="row">
-              <!-- append by javascript -->
-            </div>
-          </div>
-          <div class="column col-12" id="pub">
-            <div class="row">
-              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
-              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
-              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
-              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
+    </main>
     <footer>
       <div class="row" id="footer">
         <!--footer-->
@@ -82,16 +78,16 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="node_modules/bxslider/dist/jquery.bxslider.min.js"></script>
-  <script src="js/catalog_x100.js"></script>
-  <script src="js/catalogue.js"></script>
+  <!-- <script src="js/catalog_x100.js"></script> -->
+  <script src="js/single.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/app.js"></script>
-  <script>
+  <!-- <script>
     $(function() {
       $("#nav-placeholder").load("nav.html");
       $("#footer-placeholder").load("footer.html");
     });
-  </script>
+  </script> -->
 </body>
 
 </html>

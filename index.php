@@ -17,7 +17,10 @@
 
 <body>
   <div class="container-fluid">
-    <header>
+      <?php require "header.php";
+      require "nav.php";
+      ?>
+    <!-- <header>
       <div class="row" id="slider">
         <div class="slider sliderHead">
           <div>
@@ -32,11 +35,11 @@
         </div>
       </div>
       <div class="row" id="header">
-        <!--Navigation bar-->
-        <div id="nav-placeholder" class="column col-sm-12"></div>
+        <!-Navigation bar-->
+        <!-- <div id="nav-placeholder" class="column col-sm-12"></div> -->
         <!--end of Navigation bar-->
-      </div>
-    </header>
+      <!-- </div> -->
+    <!-- </header> --> -->
     <main>
       <div class="row" id="main">
         <div class="column col-sm-8">
@@ -50,24 +53,21 @@
         </div>
       </div>
     </main>
+
     <footer>
-      <div class="row" id="footer">
-        <!--footer-->
-        <div id="footer-placeholder" class="col-sm-12"></div>
+        <?php require "footer.php"; ?>
+      <!-- <div class="row" id="footer">
+        <!-footer-->
+        <!-- <div id="footer-placeholder" class="col-sm-12"></div> -->
         <!--end of footer-->
-      </div>
+      <!-- </div> -->
     </footer>
+
   </div>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script>
-  $(function() {
-    $("#nav-placeholder").load("nav.html");
-    $("#footer-placeholder").load("footer.html");
-  });
-  </script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="node_modules/bxslider/dist/jquery.bxslider.min.js"></script>
-  <script src="js/catalog_x100.js"></script>
+  <!-- <script src="js/catalog_x100.js"></script> -->
   <script src="js/app.js"></script>
 </body>
 

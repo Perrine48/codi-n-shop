@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <<?php header( 'content-type: text/html; charset=utf-8' ); ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/bxslider/dist/jquery.bxslider.min.css">
@@ -37,28 +39,63 @@
         <!--end of Navigation bar-->
       </div>
     </header>
-    <main>
-      <div class="row" id="product-area">
-        <div class="column col-sm-6">
-          <p>Categorie > Sous-catégorie</p>
-          <img alt="">
-        </div>
-        <div class="single-product-container column col-sm-6">
-          <h1></h1>
-          <div class="presentation">
-            <span class="discount">Prix</span>
-            <span class="title">123$</span>
-          </div>
-          <div class="presentation content">
-          </div>
-          <button type="button" name="button">+</button>
-          <input class="cpt" type="text" name="" value="">
-          <button type="button" name="button">-</button>
-          <span class="quantity"></span>
-          <button class="ajoutPanier" type="button" name="button">Ajouter au panier</button>
+
+    <div class="row" id="main">
+      <div class="column col-12 col-sm-5 col-md-3" id="filterMenu">
+        <div class="col filter">
+          <i class="fas fa-caret-right"></i>
         </div>
       </div>
-    </main>
+      <div class="column col-12" id="menuArticle">
+        <div class="row ">
+          <div class="column col-12" id="card-art">
+            <div class="row">
+                <?php
+                    $pdo = new PDO("mysql:host=localhost;dbname=test_boutique", 'admin', 'perrine');
+                    $products = $pdo->query('SELECT * FROM product');
+
+                    foreach ($products as $product) { ?>
+
+                    <div class="column col-12 col-sm-6 col-lg-3 articleVente" id="produit">
+                    <a href="single.php?id=<?php echo $product['id'] ?>"
+                        <h2> <?php echo $product ['name'];?> </h2>
+                        <img src="http://via.placeholder.com/400x400" alt="random">
+                        <p>
+                            <?php
+                                echo $product ['prix'];
+                             ?>
+                        </p>
+                        <p>
+                            <?php
+                                echo($product ['description']);
+                             ?>
+                        </p>
+                    </a>
+                    </div>
+                <?php
+                    }
+                 ?>
+            </div>
+          </div>
+          <div class="column col-12" id="pub">
+            <div class="row">
+              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
+              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
+              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
+              <div class="column col-12 col-sm-6 col-lg-3">Publicité</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
     <footer>
       <div class="row" id="footer">
         <!--footer-->
@@ -71,8 +108,8 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="node_modules/bxslider/dist/jquery.bxslider.min.js"></script>
-  <script src="js/catalog_x100.js"></script>
-  <script src="js/single.js"></script>
+  <!-- <script src="js/catalog_x100.js"></script> -->
+  <script src="js/catalogue.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/app.js"></script>
   <script>
